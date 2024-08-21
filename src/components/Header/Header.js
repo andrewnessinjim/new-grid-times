@@ -25,10 +25,10 @@ const Header = () => {
         {UniversalActionGroupElement}
         <Logo />
 
-        <CallToSubscribeSection>
+        <SubscribeWrapper>
           <Button>Subscribe</Button>
-          <LoginLink href="">Already a subscriber?</LoginLink>
-        </CallToSubscribeSection>
+          <SubscribeLink href="">Already a subscriber?</SubscribeLink>
+        </SubscribeWrapper>
       </LaptopMainHeader>
       <MobileMainHeader>
         <Logo />
@@ -93,9 +93,6 @@ const UniversalActionGroupElement = (
 );
 
 const MainHeader = styled(MaxWidthWrapper)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: var(--main-header-top-margin);
   margin-bottom: clamp(48px, 16vw - 16px, 72px);
 `;
@@ -108,24 +105,28 @@ const LaptopMainHeader = styled(MainHeader)`
 
 const MobileMainHeader = styled(MainHeader)`
   display: var(--main-header-mobile-display, flex);
-`;
-
-const CallToSubscribeSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  justify-self: end;
-  align-self: end;
+  justify-content: center;
 `;
 
-const LoginLink = styled.a`
+const SubscribeWrapper = styled.div`
+  justify-self: end;
+
+  position: relative;
+`;
+
+const SubscribeLink = styled.a`
   text-decoration: underline;
   font-style: italic;
   color: var(--color-gray-900);
   font-size: ${14 / 16}rem;
   text-wrap: nowrap;
+
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+
 `;
 
 export default Header;
