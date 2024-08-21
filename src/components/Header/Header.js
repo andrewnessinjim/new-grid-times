@@ -24,12 +24,11 @@ const Header = () => {
       <LaptopMainHeader>
         {UniversalActionGroupElement}
         <Logo />
-        <CallToSubscribeWrapper>
-          <CallToSubscribeSection>
-            <Button>Subscribe</Button>
-            <LoginLink href="">Already a subscriber?</LoginLink>
-          </CallToSubscribeSection>
-        </CallToSubscribeWrapper>
+
+        <CallToSubscribeSection>
+          <Button>Subscribe</Button>
+          <LoginLink href="">Already a subscriber?</LoginLink>
+        </CallToSubscribeSection>
       </LaptopMainHeader>
       <MobileMainHeader>
         <Logo />
@@ -102,19 +101,13 @@ const MainHeader = styled(MaxWidthWrapper)`
 `;
 
 const LaptopMainHeader = styled(MainHeader)`
-  display: var(--main-header-laptop-display, flex);
-  & > * {
-    flex: 1;
-  }
+  display: var(--main-header-laptop-display, grid);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
 `;
 
 const MobileMainHeader = styled(MainHeader)`
   display: var(--main-header-mobile-display, flex);
-`;
-
-const CallToSubscribeWrapper = styled.div`
-  display:flex;
-  justify-content: flex-end;
 `;
 
 const CallToSubscribeSection = styled.div`
@@ -123,6 +116,8 @@ const CallToSubscribeSection = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  justify-self: end;
+  align-self: end;
 `;
 
 const LoginLink = styled.a`
