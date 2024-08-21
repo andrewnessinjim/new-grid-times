@@ -24,10 +24,12 @@ const Header = () => {
       <LaptopMainHeader>
         {UniversalActionGroupElement}
         <Logo />
-        <CallToSubscribeContainer>
-          <Button>Subscribe</Button>
-          <LoginLink href="">Already a subscriber?</LoginLink>
-        </CallToSubscribeContainer>
+        <CallToSubscribeWrapper>
+          <CallToSubscribeSection>
+            <Button>Subscribe</Button>
+            <LoginLink href="">Already a subscriber?</LoginLink>
+          </CallToSubscribeSection>
+        </CallToSubscribeWrapper>
       </LaptopMainHeader>
       <MobileMainHeader>
         <Logo />
@@ -94,21 +96,28 @@ const UniversalActionGroupElement = (
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: var(--main-header-top-margin);
   margin-bottom: clamp(48px, 16vw - 16px, 72px);
 `;
 
 const LaptopMainHeader = styled(MainHeader)`
-  justify-content: space-between;
   display: var(--main-header-laptop-display, flex);
+  & > * {
+    flex: 1;
+  }
 `;
 
 const MobileMainHeader = styled(MainHeader)`
-  justify-content: center;
   display: var(--main-header-mobile-display, flex);
 `;
 
-const CallToSubscribeContainer = styled.div`
+const CallToSubscribeWrapper = styled.div`
+  display:flex;
+  justify-content: flex-end;
+`;
+
+const CallToSubscribeSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,6 +130,7 @@ const LoginLink = styled.a`
   font-style: italic;
   color: var(--color-gray-900);
   font-size: ${14 / 16}rem;
+  text-wrap: nowrap;
 `;
 
 export default Header;
