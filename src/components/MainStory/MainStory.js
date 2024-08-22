@@ -48,6 +48,8 @@ const Abstract = styled.p`
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
+
+  /* Necessary for line clamping */
   overflow: hidden;
   
   -webkit-line-clamp: 8;
