@@ -1,22 +1,47 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
+import { QUERIES } from "../../constants";
 
-const OpinionStory = ({ id, title, author, avatar }) => {
+const OpinionStory = ({
+  id,
+  title,
+  author,
+  avatar,
+}) => {
   return (
     <a href={`/story/${id}`}>
-      <Wrapper>
+      <Wrapper      >
         <Avatar alt="" src={avatar} />
-        <div>
+        <AuthorAndTitle>
           <AuthorName>{author}</AuthorName>
           <ArticleTitle>{title}</ArticleTitle>
-        </div>
+        </AuthorAndTitle>
       </Wrapper>
     </a>
   );
 };
 
 const Wrapper = styled.article`
+  --gap: 32px;
+  --flexDirection: row;
+  --justifyContent: space-between;
+  --avatarOrder: 2;
+  --authorAndTitleOrder: 1;
+
+  @media ${QUERIES.tabletOnly} {
+    --gap: 8px;
+    --flexDirection: column;
+    --justifyContent: auto;
+    --avatarOrder: auto;
+    --authorAndTitleOrder: auto;
+  }
+
   color: var(--color-gray-900);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-direction: var(--flexDirection);
+  justify-content: var(--justifyContent);
 `;
 
 const Avatar = styled.img`
@@ -25,6 +50,11 @@ const Avatar = styled.img`
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  order: var(--avatarOrder);
+`;
+
+const AuthorAndTitle = styled.div`
+  order: var(--authorAndTitleOrder);
 `;
 
 const AuthorName = styled.p`
