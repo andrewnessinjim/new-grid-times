@@ -1,23 +1,21 @@
-import React from "react";
-import styled from "styled-components/macro";
-import StoryPreviewWrapper from "../StoryPreviewWrapper/StoryPreviewWrapper";
+import React from 'react';
+import styled from 'styled-components/macro';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <StoryPreviewWrapper href={`/story/${id}`}>
-      <PreviewArticle>
+    <a href={`/story/${id}`}>
+      <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <AbstractWrapper>
           <Abstract>{abstract}</Abstract>
         </AbstractWrapper>
-      </PreviewArticle>
-    </StoryPreviewWrapper>
+      </Wrapper>
+    </a>
   );
 };
 
-
-const PreviewArticle = styled.article`
+const Wrapper = styled.article`
   display: grid;
   grid-template-areas:
     'image heading'

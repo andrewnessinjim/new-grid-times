@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <StoryPreviewWrapper href={`/story/${id}`}>
+    <a href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -11,7 +11,7 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </StoryPreviewWrapper>
+    </a>
   );
 };
 

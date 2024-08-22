@@ -23,7 +23,9 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <VerticalStoryPreviewWrapper key={story.id}>
+              <SecondaryStory  {...story} />
+            </VerticalStoryPreviewWrapper>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +34,9 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <VerticalStoryPreviewWrapper key={story.id}>
+              <OpinionStory key={story.id} {...story} />
+            </VerticalStoryPreviewWrapper>
           ))}
         </StoryList>
       </OpinionSection>
@@ -70,6 +74,17 @@ const StoryList = styled.div`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+`;
+
+const VerticalStoryPreviewWrapper = styled.div`
+  &:not(:first-of-type) {
+    padding-top: 16px;
+  }
+
+  &:not(:last-of-type) {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-gray-300);
+  }
 `;
 
 const AdvertisementSection = styled.section`
