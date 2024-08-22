@@ -69,7 +69,7 @@ const Wrapper = styled.div`
   }
 
   @media ${QUERIES.laptopAndUp} {
-    grid-template-columns: 4fr 3.25fr 2.25fr;
+    grid-template-columns: 5fr 4fr 3fr;
     grid-template-areas:
       'main-story   secondary-stories   opinion-stories'
       'main-story   advertisement       advertisement';
@@ -115,6 +115,8 @@ const HorizontalOnTabletStoryList = styled(VerticalStoryList)`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+  /* Optical alignment */
+  margin-top: -8px;
 `;
 
 const StoryPreviewWrapper = styled.div`
